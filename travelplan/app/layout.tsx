@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import AuthButton from '../components/AuthButton';
 import './globals.css';
 import { useState } from 'react';
 
@@ -21,9 +20,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
               </svg>
             </button>
-            <div className="hidden md:block">
-              <AuthButton />
-            </div>
           </div>
         </header>
 
@@ -46,10 +42,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </li>
           </ul>
         </nav>
-
-        <div className="md:hidden p-4 bg-white shadow-md text-right">
-          <AuthButton />
-        </div>
 
         <main className="p-4 md:p-8">{children}</main>
         <footer className="text-center p-4 bg-gray-200">
