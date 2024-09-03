@@ -11,13 +11,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="font-sans">
       <body className="bg-white m-0 p-0">
         <header className="flex justify-between items-center p-4 bg-white shadow-md">
-          <Link href="/">
-            <img src="/logo.png" alt="Site Logo" className="max-w-[120px] md:max-w-[150px]" />
+          <div className="flex-grow"></div>
+          <Link href="/" className="flex-grow-0">
+            <img src="/logo.png" alt="Site Logo" className="mx-auto max-w-[120px] md:max-w-[150px]" />
           </Link>
-          <div className="flex items-center">
+          <div className="flex-grow text-right">
             <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
               <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
               </svg>
             </button>
           </div>
