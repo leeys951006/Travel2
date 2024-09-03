@@ -43,46 +43,50 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* 닫기 버튼 */}
           {menuOpen && (
             <button className="absolute bottom-4 left-4 p-2 text-[#1B6AB3]" onClick={() => setMenuOpen(false)}>
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6l6 6-6 6"></path>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6l6 6-6 6"></path>
-              </svg>
+              <img src="/닫기.png" alt="Close" className="w-8 h-8" />
             </button>
           )}
 
           <ul className="list-none flex flex-col justify-center gap-4 p-4 m-0">
-            <li className="nav-item">
-              <Link href="/my-plans" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+            <li className="nav-item flex items-center">
+              <img src="/캘린더.png" alt="Calendar" className="w-6 h-6 mr-2" />
+              <Link href="/my-plans" className="font-bold no-underline hover:text-blue-800 transition-colors text-[#1B6AB3]">
                 나의 계획
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/transport-info" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+            <li className="nav-item flex items-center">
+              <img src="/정보.png" alt="Info" className="w-6 h-6 mr-2" />
+              <Link href="/transport-info" className="font-bold no-underline hover:text-blue-800 transition-colors text-[#1B6AB3]">
                 교통 정보
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/guidebook" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+            <li className="nav-item flex items-center">
+              <img src="/책.png" alt="Book" className="w-6 h-6 mr-2" />
+              <Link href="/guidebook" className="font-bold no-underline hover:text-blue-800 transition-colors text-[#1B6AB3]">
                 가이드북
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/festival-info" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+            <li className="nav-item flex items-center">
+              <img src="/정보.png" alt="Info" className="w-6 h-6 mr-2" />
+              <Link href="/festival-info" className="font-bold no-underline hover:text-blue-800 transition-colors text-[#1B6AB3]">
                 축제 정보
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/travel-insurance" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+            <li className="nav-item flex items-center">
+              <img src="/정보.png" alt="Info" className="w-6 h-6 mr-2" />
+              <Link href="/travel-insurance" className="font-bold no-underline hover:text-blue-800 transition-colors text-[#1B6AB3]">
                 여행자 보험
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/essentials" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+            <li className="nav-item flex items-center">
+              <img src="/용품.png" alt="Essentials" className="w-6 h-6 mr-2" />
+              <Link href="/essentials" className="font-bold no-underline hover:text-blue-800 transition-colors text-[#1B6AB3]">
                 필수 용품
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/community" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+            <li className="nav-item flex items-center">
+              <img src="/말하기.png" alt="Community" className="w-6 h-6 mr-2" />
+              <Link href="/community" className="font-bold no-underline hover:text-blue-800 transition-colors text-[#1B6AB3]">
                 커뮤니티
               </Link>
             </li>
@@ -93,37 +97,37 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="hidden md:flex bg-[#1B6AB3] p-2 shadow-md text-white text-sm md:text-base justify-start items-center">
           <ul className="list-none flex flex-row gap-8 p-0 m-0 mx-auto">
             <li className="nav-item">
-              <Link href="/my-plans" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+              <Link href="/my-plans" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors text-white">
                 나의 계획
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/transport-info" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+              <Link href="/transport-info" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors text-white">
                 교통 정보
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/guidebook" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+              <Link href="/guidebook" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors text-white">
                 가이드북
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/festival-info" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+              <Link href="/festival-info" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors text-white">
                 축제 정보
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/travel-insurance" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+              <Link href="/travel-insurance" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors text-white">
                 여행자 보험
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/essentials" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+              <Link href="/essentials" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors text-white">
                 필수 용품
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/community" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors">
+              <Link href="/community" className="font-bold no-underline p-2 hover:text-blue-800 transition-colors text-white">
                 커뮤니티
               </Link>
             </li>
