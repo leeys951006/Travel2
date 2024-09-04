@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export default function KakaoCallback() {
   const router = useRouter();
-  const { code } = router.query; // query에서 code를 가져옴
+  const { code } = router.query;
 
   useEffect(() => {
     if (code) {
@@ -19,15 +19,9 @@ export default function KakaoCallback() {
           }
           return response.json();
         })
-        .then((data) => {
-          const { token } = data;
-
-          if (token) {
-            localStorage.setItem('token', token); // JWT 토큰을 로컬 스토리지에 저장
-            router.push('/'); // 홈 화면으로 리다이렉션
-          } else {
-            console.error('토큰이 없습니다.');
-          }
+        .then(() => {
+          // 쿠키에 토큰이 저장되었으므로 홈 화면으로 리다이렉션
+          router.push('/');
         })
         .catch((error) => {
           console.error('로그인 처리 실패:', error.message);

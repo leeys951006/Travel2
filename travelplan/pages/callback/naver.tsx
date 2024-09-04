@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react'; // React를 명시적으로 import
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export default function NaverCallback() {
@@ -20,15 +20,9 @@ export default function NaverCallback() {
           }
           return response.json();
         })
-        .then((data) => {
-          const { token } = data;
-
-          if (token) {
-            localStorage.setItem('token', token);
-            router.push('/');
-          } else {
-            console.error('토큰이 없습니다.');
-          }
+        .then(() => {
+          // 쿠키에 토큰이 저장되었으므로 홈 화면으로 리다이렉션
+          router.push('/');
         })
         .catch((error) => {
           console.error('로그인 처리 실패:', error.message);
