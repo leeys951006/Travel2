@@ -1,27 +1,30 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "lib": ["dom", "dom.iterable", "esnext"], // 사용할 라이브러리 설정
+    "allowJs": true, // JS 파일 허용
+    "skipLibCheck": true, // 라이브러리 타입 검사를 건너뜀
+    "strict": true, // 엄격한 타입 검사 모드 활성화
+    "noEmit": true, // 컴파일 시 파일 생성 안 함
+    "esModuleInterop": true, // ES 모듈 호환성 설정
+    "module": "esnext", // 최신 ES 모듈 방식 사용
+    "moduleResolution": "bundler", // 모듈 해석 방식 설정
+    "resolveJsonModule": true, // JSON 모듈 임포트 허용
+    "isolatedModules": true, // 개별 모듈로 컴파일
+    "jsx": "preserve", // JSX 코드 유지
+    "incremental": true, // 증분 컴파일 활성화
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Next.js 플러그인 사용
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"] // 경로 별칭 설정
     },
-    "target": "es2020"
+    "target": "es2020", // 컴파일 타겟 설정
+    "baseUrl": "." // 기본 경로 설정
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"], // 포함할 파일 설정
+  "exclude": ["node_modules"], // 제외할 파일 설정
+  "types": ["./types"], // 사용자 정의 타입 포함
+  "forceConsistentCasingInFileNames": true // 파일 이름 일관성 강제
 }
