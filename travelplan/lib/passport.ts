@@ -5,16 +5,16 @@ import mysql from 'mysql2/promise';
 
 const db = await mysql.createConnection({
   host: 'localhost',
-  user: 'your-username',
-  password: 'your-password',
+  user: 'root',
+  password: '1028',
   database: 'myapp',
 });
 
-passport.serializeUser((user, done) => {
+passport.serializeUser((user: any, done: (err: any, id?: unknown) => void) => {
   done(null, user.id);
 });
 
-passport.deserializeUser(async (id, done) => {
+passport.deserializeUser(async (id: string, done: (err: any, user?: any) => void) => {
   const [rows] = await db.execute('SELECT * FROM users WHERE id = ?', [id]);
   done(null, rows[0]);
 });
@@ -23,8 +23,8 @@ passport.deserializeUser(async (id, done) => {
 passport.use(
   new NaverStrategy(
     {
-      clientID: process.env.NAVER_CLIENT_ID,
-      clientSecret: process.env.NAVER_CLIENT_SECRET,
+      clientID: process.env.NAVER_CLIENT_ID!,
+      clientSecret: process.env.NAVER_CLIENT_SECRET!,
       callbackURL: '/api/auth/naver/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -51,7 +51,7 @@ passport.use(
 passport.use(
   new KakaoStrategy(
     {
-      clientID: process.env.KAKAO_CLIENT_ID,
+      clientID: process.env.KAKAO_CLIENT_ID!,
       callbackURL: '/api/auth/kakao/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
