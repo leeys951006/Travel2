@@ -1,19 +1,32 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import { createUserIfNotExists, findUserByProviderId, findUserById } from '../../../lib/db';
+import { createUserIfNotExists, findUserByProviderId, findUserById } from '../../../../lib/db';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { code, state } = req.query;
 
   try {
+    // 서버에서 사용할 환경 변수 (NEXT_PUBLIC 없이 사용)
+    const clientId = process.env.NAVER_CLIENT_ID; // 수정
+    const clientSecret = process.env.NAVER_CLIENT_SECRET; // 수정
+
+    if (!clientId || !clientSecret) {
+      throw new Error('Naver Client ID 또는 Client Secret이 설정되지 않았습니다.');
+    }
+
     // 네이버에서 인증 코드로 토큰 요청
-    const tokenResponse = await axios.post('https://nid.naver.com/oauth2.0/token', {
-      grant_type: 'authorization_code',
-      client_id: process.env.NEXT_PUBLIC_NAVER_CLIENT_ID,
-      client_secret: process.env.NEXT_PUBLIC_NAVER_CLIENT_SECRET,
-      code,
-      state,
+    const tokenResponse = await axios.post('https://nid.naver.com/oauth2.0/token', null, {
+      params: {
+        grant_type: 'authorization_code',
+        client_id: clientId,
+        client_secret: clientSecret,
+        code,
+        state,
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
     });
 
     const accessToken = tokenResponse.data.access_token;
@@ -53,6 +66,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(500).json({ message: '사용자를 찾을 수 없습니다.' });
     }
   } catch (error) {
-    res.status(500).json({ message: '로그인 실패', error: (error as any).message });
+    console.error('Naver OAuth 처리 실패:', error);
+    res.status(500).json({ message: '네이버 로그인 처리 중 오류가 발생했습니다.', error: (error as any).message });
   }
 }
