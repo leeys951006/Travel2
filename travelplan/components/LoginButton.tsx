@@ -28,9 +28,7 @@ export default function LoginButton() {
   return (
     <button
       onClick={isLoggedIn ? handleLogout : handleLogin}
-      className={`text-[#1B6AB3] border border-[#1B6AB3] py-2 px-6 rounded-full text-sm md:text-base transition-colors duration-300 ease-in-out ${
-        isLoggedIn ? 'bg-[#1B6AB3] text-white hover:bg-[#ff5757]' : 'hover:bg-[#1B6AB3] hover:text-white'
-      }`}
+      className={`text-[#1B6AB3] border border-[#1B6AB3] bg-white py-2 px-6 rounded-full text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-[#1B6AB3] hover:text-white`}
     >
       {isLoggedIn ? '로그아웃' : '로그인'}
     </button>
